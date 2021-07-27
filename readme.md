@@ -27,9 +27,10 @@ pip install jbwsl2
 
 ### How do I run it?
 
-- If you downloaded the executable: You can run the `jbwsl2.exe` file either via your cmd prompt or by opening it normally.
-- If you installed via pip, you may type `jbwsl2.exe` in your cmd prompt
-- Alternatively, using the [multirun](https://plugins.jetbrains.com/plugin/7248-multirun/) plugin
+In your command prompt type
+```shell
+jbwsl2.exe
+```
 
 Once the application is running and configured, you can go back to your editor and attempt to run your application with docker-compose.
 Due to race condition issues, it could take a few tries before the application runs correctly.
@@ -38,7 +39,7 @@ Due to race condition issues, it could take a few tries before the application r
 
 - **-p**: root project directory containing the docker-compose.yml file
 - **-t**: JetBrains tmp directory
-- **-c**: JetBrains's $Classpath$ macro
+- **-c**: JetBrains's $Classpath$ macro. This argument can be used instead of -t to automatically determine the correct temp path
 
 example:
 ```shell
