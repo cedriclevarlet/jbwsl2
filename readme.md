@@ -27,7 +27,7 @@ pip install jbwsl2
 
 ### How do I run it?
 
-In your command prompt type
+Double click on the executable or, in your command prompt, type
 ```shell
 jbwsl2.exe
 ```
