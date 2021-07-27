@@ -3,6 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='jbwsl2',
     version='1.0.0',
+    license='GNU GPLv3',
     packages=find_packages(exclude=['docs']),
     include_package_data=True,
     package_data={'': ['*.png']},
