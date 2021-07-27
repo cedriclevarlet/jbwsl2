@@ -1,0 +1,1 @@
+pyinstaller.exe --onefile --windowed bin/jbwsl2.py --collect-data jbwsl2

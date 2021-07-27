@@ -1,0 +1,7 @@
+build
+dist
+.idea
+*.iml
+*.pyc
+*.egg-info
+jbwsl2.spec

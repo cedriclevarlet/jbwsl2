@@ -1,0 +1,48 @@
+# Jetbrains WSL2 invalid interpolation fix
+
+This tool aims to fix the `Invalid interpolation format` error which occurs on Jetbrain's IDEs when attempting to run a docker-compose 
+application in WSL2.
+
+![interpolate error](docs/error.png)
+
+## How does it work?
+
+The tool listens to any file changes in the specified target directory (Jetbrain's tmp directory). If a docker-compose file is created, it will attempt to replace the invalid paths before Jetbrains has a chance to run the docker-compose command.
+
+![interpolate error](docs/app.png)
+
+## Getting started
+
+### Install the application 
+#### Either download the executable
+
+Every release has an exe file bundled with it. You can download it [here](/cedriclevarlet/jetbrains) to the directory of your choice.
+
+#### or use pip (If you have python installed)
+
+First we need to install the package
+```shell
+pip install jbwsl2
+```
+
+### How do I run it?
+
+- If you downloaded the executable: You can run the `jbwsl2.exe` file either via your cmd prompt or by opening it normally.
+- If you installed via pip, you may type `jbwsl2.exe` in your cmd prompt
+- Alternatively, using the [multirun](https://plugins.jetbrains.com/plugin/7248-multirun/) plugin
+
+Once the application is running and configured, you can go back to your editor and attempt to run your application with docker-compose.
+Due to race condition issues, it could take a few tries before the application runs correctly.
+
+## Optional arguments
+
+- **-p**: root project directory containing the docker-compose.yml file
+- **-t**: JetBrains tmp directory
+- **-c**: JetBrains's $Classpath$ macro
+
+example:
+```shell
+jbwsl2.exe -p \\wsl$\Ubuntu-20.04\home\john\example -t C:\Users\john\AppData\Local\JetBrains\IntelliJIdea2021.1\tmp
+```
+
+
