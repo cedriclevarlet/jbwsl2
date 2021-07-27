@@ -16,7 +16,7 @@ The tool listens to any file changes in the specified target directory (Jetbrain
 ### Install the application 
 #### Either download the executable
 
-Every release has an exe file bundled with it. You can download it [here](/cedriclevarlet/jetbrains) to the directory of your choice.
+Every release has an exe file bundled with it. You can download it [https://github.com/cedriclevarlet/jetbrains.invalid-interpolation/releases/latest/download/jbwsl2.exe](/cedriclevarlet/jetbrains) to the directory of your choice.
 
 #### or use pip (If you have python installed)
 
