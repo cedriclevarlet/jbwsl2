@@ -22,7 +22,7 @@ Every release has an exe file bundled with it. You can download it [here](https:
 
 First we need to install the package
 ```shell
-pip install jbwsl2
+pip install git+ssh://git@github.com/cedriclevarlet/jbwsl2#1.0.0
 ```
 
 ### How do I run it?
