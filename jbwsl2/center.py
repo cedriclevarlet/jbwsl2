@@ -84,7 +84,7 @@ class CentralWidget(QWidget):
                     return
 
                 # search for wrongly formatted path
-                result = re.sub(r'(\$)\1+', r'\1', content)
+                result = re.sub(r'wsl(\$)\1+', r'wsl\1', content)
                 result = re.sub(
                     r'(\"\/\/wsl[\$]*\/[a-zA-Z\- 0-9\.\:\/]*\")',
                     lambda match: './{}'.format(match.group().replace('"', '').replace(invalid_path_component, '').lstrip('/')),
