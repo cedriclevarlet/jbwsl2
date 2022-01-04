@@ -69,6 +69,8 @@ class CentralWidget(QWidget):
         if latest_file in self.files:
             return
 
+        self.files.append(latest_file)
+
         self.overview.set_input("{}New file: {}...\n".format(self.overview.input.toPlainText(), latest_file))
         invalid_path_component = self.project_path.replace('\\', '/')
 
@@ -77,15 +79,16 @@ class CentralWidget(QWidget):
                 f = open(latest_file, 'r+')
                 content = f.read()
 
-                match = re.search(r'(\"\/\/wsl\$\/[a-zA-Z\- 0-9\.\:\/]*\")', content)
+                match = re.search(r'(\"\/\/wsl[\$]*\/[a-zA-Z\- 0-9\.\:\/]*\")', content)
                 if not match:
                     return
 
                 # search for wrongly formatted path
+                result = re.sub(r'wsl(\$)\1+', r'wsl\1', content)
                 result = re.sub(
-                    r'(\"\/\/wsl\$\/[a-zA-Z\- 0-9\.\:\/]*\")',
+                    r'(\"\/\/wsl[\$]*\/[a-zA-Z\- 0-9\.\:\/]*\")',
                     lambda match: './{}'.format(match.group().replace('"', '').replace(invalid_path_component, '').lstrip('/')),
-                    content
+                    result
                 )
 
                 f.seek(0)
@@ -98,8 +101,6 @@ class CentralWidget(QWidget):
                 ))
 
                 self.overview.set_output(result)
-
-                self.files.append(latest_file)
                 break
             except Exception as e:
                 print(str(e))
